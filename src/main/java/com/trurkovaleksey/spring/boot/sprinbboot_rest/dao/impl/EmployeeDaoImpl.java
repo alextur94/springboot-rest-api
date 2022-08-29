@@ -1,7 +1,8 @@
 package com.trurkovaleksey.spring.boot.sprinbboot_rest.dao.impl;
 
 import com.trurkovaleksey.spring.boot.sprinbboot_rest.dao.api.Dao;
-import com.trurkovaleksey.spring.boot.sprinbboot_rest.entity.Employee;
+import com.trurkovaleksey.spring.boot.sprinbboot_rest.dao.api.EmployeeDao;
+import com.trurkovaleksey.spring.boot.sprinbboot_rest.dao.entity.Employee;
 //JPA
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -14,7 +15,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class EmployeeDaoImpl implements Dao<Employee> {
+public class EmployeeDaoImpl implements EmployeeDao {
 
     @Autowired
     private EntityManager entityManager;
