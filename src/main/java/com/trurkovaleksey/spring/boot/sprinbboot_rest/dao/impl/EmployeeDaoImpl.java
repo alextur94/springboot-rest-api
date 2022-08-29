@@ -1,14 +1,16 @@
 package com.trurkovaleksey.spring.boot.sprinbboot_rest.dao.impl;
 
-import com.trurkovaleksey.spring.boot.sprinbboot_rest.dao.api.Dao;
 import com.trurkovaleksey.spring.boot.sprinbboot_rest.dao.api.EmployeeDao;
 import com.trurkovaleksey.spring.boot.sprinbboot_rest.dao.entity.Employee;
-//JPA
 import javax.persistence.EntityManager;
+
+//JPA
 import javax.persistence.Query;
+
 //Hibernate
 //import org.hibernate.Session;
 //import org.hibernate.query.Query;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
