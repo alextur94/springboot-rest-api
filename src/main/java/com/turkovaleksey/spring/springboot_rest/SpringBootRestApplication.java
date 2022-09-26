@@ -1,4 +1,4 @@
-package com.trurkovaleksey.spring.boot.sprinbboot_rest;
+package com.turkovaleksey.spring.springboot_rest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

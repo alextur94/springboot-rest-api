@@ -1,4 +1,4 @@
-package com.trurkovaleksey.spring.boot.sprinbboot_rest.srevice.api;
+package com.turkovaleksey.spring.springboot_rest.service.api;
 
 import java.util.List;
 

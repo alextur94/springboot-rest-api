@@ -1,8 +1,8 @@
-package com.trurkovaleksey.spring.boot.sprinbboot_rest.srevice.impl;
+package com.turkovaleksey.spring.springboot_rest.service.impl;
 
-import com.trurkovaleksey.spring.boot.sprinbboot_rest.dao.api.Dao;
-import com.trurkovaleksey.spring.boot.sprinbboot_rest.dao.entity.Employee;
-import com.trurkovaleksey.spring.boot.sprinbboot_rest.srevice.api.EmployeeService;
+import com.turkovaleksey.spring.springboot_rest.dao.api.Dao;
+import com.turkovaleksey.spring.springboot_rest.dao.entity.Employee;
+import com.turkovaleksey.spring.springboot_rest.service.api.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 

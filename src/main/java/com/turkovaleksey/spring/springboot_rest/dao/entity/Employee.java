@@ -1,4 +1,4 @@
-package com.trurkovaleksey.spring.boot.sprinbboot_rest.dao.entity;
+package com.turkovaleksey.spring.springboot_rest.dao.entity;
 
 import javax.persistence.*;
 

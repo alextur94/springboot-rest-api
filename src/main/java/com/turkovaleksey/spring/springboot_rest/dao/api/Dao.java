@@ -1,4 +1,4 @@
-package com.trurkovaleksey.spring.boot.sprinbboot_rest.dao.api;
+package com.turkovaleksey.spring.springboot_rest.dao.api;
 
 import java.util.List;
 

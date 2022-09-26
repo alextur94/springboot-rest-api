@@ -1,8 +1,7 @@
-package com.trurkovaleksey.spring.boot.sprinbboot_rest.controller;
+package com.turkovaleksey.spring.springboot_rest.controller;
 
-
-import com.trurkovaleksey.spring.boot.sprinbboot_rest.dao.entity.Employee;
-import com.trurkovaleksey.spring.boot.sprinbboot_rest.srevice.api.Service;
+import com.turkovaleksey.spring.springboot_rest.dao.entity.Employee;
+import com.turkovaleksey.spring.springboot_rest.service.api.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

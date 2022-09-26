@@ -1,7 +1,7 @@
-package com.trurkovaleksey.spring.boot.sprinbboot_rest.dao.impl;
+package com.turkovaleksey.spring.springboot_rest.dao.impl;
 
-import com.trurkovaleksey.spring.boot.sprinbboot_rest.dao.api.EmployeeDao;
-import com.trurkovaleksey.spring.boot.sprinbboot_rest.dao.entity.Employee;
+import com.turkovaleksey.spring.springboot_rest.dao.api.EmployeeDao;
+import com.turkovaleksey.spring.springboot_rest.dao.entity.Employee;
 import javax.persistence.EntityManager;
 
 //JPA
