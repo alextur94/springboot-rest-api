@@ -44,5 +44,4 @@ public class MyRestController {
         return "Employee with ID = " + id + " was deleted";
     }
 
-
 }
