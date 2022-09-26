@@ -8,37 +8,37 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/employees")
 public class MyRestController {
 
     @Autowired
     private Service service;
 
-    @GetMapping("/employees")
+    @GetMapping("/")
     public List<Employee> showAllEmployees() {
         List<Employee> list = service.getAll();
         return list;
     }
 
-    @GetMapping("/employees/{id}")
+    @GetMapping("/{id}")
     public Employee getEmployee(@PathVariable int id) {
         Employee employee = (Employee) service.getByID(id);
         return employee;
     }
 
-    @PostMapping("/employees")
+    @PostMapping("/")
     public Employee addNewEmployee(@RequestBody Employee employee) {
         service.saveOrUpdate(employee);
         return employee;
     }
 
-    @PutMapping("/employees")
+    @PutMapping("/")
     public Employee updateEmployee(@RequestBody Employee employee) {
         service.saveOrUpdate(employee);
         return employee;
     }
 
-    @DeleteMapping("/employees/{id}")
+    @DeleteMapping("/{id}")
     public String deleteEmployee(@PathVariable Integer id) {
         service.deleteById(id);
         return "Employee with ID = " + id + " was deleted";
