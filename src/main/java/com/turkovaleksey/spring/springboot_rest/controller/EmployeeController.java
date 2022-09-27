@@ -10,7 +10,7 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
 @RequestMapping("/employees")
-public class MyRestController {
+public class EmployeeController {
 
     @Autowired
     private Service service;
@@ -27,14 +27,8 @@ public class MyRestController {
         return employee;
     }
 
-    @PostMapping("/")
-    public Employee addNewEmployee(@RequestBody Employee employee) {
-        service.saveOrUpdate(employee);
-        return employee;
-    }
-
     @PutMapping("/")
-    public Employee updateEmployee(@RequestBody Employee employee) {
+    public Employee saveOrUpdate(@RequestBody Employee employee) {
         service.saveOrUpdate(employee);
         return employee;
     }
