@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/employees")
+@CrossOrigin
 public class MyRestController {
 
     @Autowired

@@ -12,13 +12,13 @@ public class SpringBootRestApplication {
 		SpringApplication.run(SpringBootRestApplication.class, args);
 	}
 
-	@Bean
-	public WebMvcConfigurer corsConfig() {
-		return new WebMvcConfigurer() {
-			@Override
-			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/**");
-			}
-		};
-	}
+//	@Bean
+//	public WebMvcConfigurer corsConfig() {
+//		return new WebMvcConfigurer() {
+//			@Override
+//			public void addCorsMappings(CorsRegistry registry) {
+//				registry.addMapping("/**");
+//			}
+//		};
+//	}
 }
