@@ -33,8 +33,14 @@ public class EmployeeController {
         return employee;
     }
 
-    @PutMapping("/{id}")
-    public String deleteEmployee(@PathVariable Integer id) {
+//    @DeleteMapping("/{id}")
+//    public String deleteEmployee(@PathVariable Integer id) {
+//        service.deleteById(id);
+//        return "Employee with ID = " + id + " was deleted";
+//    }
+
+    @RequestMapping("/delete/{id}")
+    public String delete2Employee(@PathVariable Integer id) {
         service.deleteById(id);
         return "Employee with ID = " + id + " was deleted";
     }
