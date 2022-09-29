@@ -39,7 +39,7 @@ public class EmployeeController {
 //        return "Employee with ID = " + id + " was deleted";
 //    }
 
-    @RequestMapping("/delete/{id}")
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public String delete2Employee(@PathVariable Integer id) {
         service.deleteById(id);
         return "Employee with ID = " + id + " was deleted";
