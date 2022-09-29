@@ -23,7 +23,7 @@ public class EmployeeController {
 
     @GetMapping("/{id}")
     public Employee getEmployee(@PathVariable int id) {
-        Employee employee = (Employee) service.getByID(id);
+        Employee employee = service.getByID(id);
         return employee;
     }
 
@@ -33,22 +33,17 @@ public class EmployeeController {
         return employee;
     }
 
-//    @DeleteMapping("/{id}")
-//    public String deleteEmployee(@PathVariable Integer id) {
-//        service.deleteById(id);
-//        return "Employee with ID = " + id + " was deleted";
-//    }
-
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public String delete2Employee(@PathVariable Integer id) {
+    @DeleteMapping("/{id}")
+    public String deleteEmployee(@PathVariable Integer id) {
         service.deleteById(id);
         return "Employee with ID = " + id + " was deleted";
     }
 
     @GetMapping("/phone")
     public List<String> getAllPhone() {
-        List<String> list = service.getAllPhone();
-        return list;
+//        List<String> list = service.getAllPhone();
+//        return list;
+        return null;
     }
 
 }

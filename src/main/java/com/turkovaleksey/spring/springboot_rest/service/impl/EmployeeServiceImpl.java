@@ -29,7 +29,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     @Transactional
     public Employee getByID(Integer id) {
-        return dao.getById(id);
+        return dao.findById(id).get();
     }
 
     @Override
