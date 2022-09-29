@@ -1,7 +1,6 @@
 package com.turkovaleksey.spring.springboot_rest.dao.entity;
 
 import javax.persistence.*;
-
 @Entity
 @Table(name = "employees")
 public class Employee {
