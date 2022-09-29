@@ -33,17 +33,17 @@ public class EmployeeController {
         return employee;
     }
 
-    @DeleteMapping("/{id}")
-    public String deleteEmployee(@PathVariable Integer id) {
-        service.deleteById(id);
-        return "Employee with ID = " + id + " was deleted";
-    }
-
-//    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-//    public String delete2Employee(@PathVariable Integer id) {
+//    @DeleteMapping("/{id}")
+//    public String deleteEmployee(@PathVariable Integer id) {
 //        service.deleteById(id);
 //        return "Employee with ID = " + id + " was deleted";
 //    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public String delete2Employee(@PathVariable Integer id) {
+        service.deleteById(id);
+        return "Employee with ID = " + id + " was deleted";
+    }
 
     @GetMapping("/phone")
     public List<String> getAllPhone() {
