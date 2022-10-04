@@ -48,7 +48,7 @@ public class EmployeeController implements ControllerAPI<Employee, Integer> {
         return "Employee with ID = " + id + " was deleted";
     }
 
-//    @GetMapping("/{salary}")
+//    @GetMapping("/salary/{salary}")
 //    public List<String> getAllPhoneBySalary(@PathVariable Integer salary) {
 //        List<String> list = service.getAllPhoneBySalary(salary);
 //        return list;
