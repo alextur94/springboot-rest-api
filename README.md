@@ -1,3 +1,4 @@
-# springboot-rest
-A simple Spring Boot REST application with working database (mysql) and query
+# Simple web-project on Spring Boot
+I wrote backend. Used REST API and Spring Security
+
 

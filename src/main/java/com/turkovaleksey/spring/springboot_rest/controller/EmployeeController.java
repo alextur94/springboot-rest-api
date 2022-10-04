@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-//@CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
-@RequestMapping("/employees")
+@RequestMapping("/api/employees")
 public class EmployeeController implements ControllerAPI<Employee, Integer> {
 
     @Autowired
     private EmployeeService service;
 
+    @Override
     @GetMapping("/")
     public List<Employee> getAll() {
         List<Employee> list = service.getAll();
@@ -36,17 +36,17 @@ public class EmployeeController implements ControllerAPI<Employee, Integer> {
         return employee;
     }
 
+    @Override
     @DeleteMapping("/{id}")
     public String deleteById(@PathVariable Integer id) {
         service.deleteById(id);
         return "Employee with ID = " + id + " was deleted";
     }
 
-    @GetMapping("/phone")
-    public List<String> getAllPhone() {
-//        List<String> list = service.getAllPhone();
-//        return list;
-        return null;
+    @GetMapping("/{salary}")
+    public List<String> getAllPhoneBySalary(@PathVariable Integer salary) {
+        List<String> list = service.getAllPhoneBySalary(salary);
+        return list;
     }
 
 }

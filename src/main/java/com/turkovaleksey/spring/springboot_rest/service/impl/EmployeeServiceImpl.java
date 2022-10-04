@@ -4,11 +4,14 @@ import com.turkovaleksey.spring.springboot_rest.dao.api.EmployeeDao;
 import com.turkovaleksey.spring.springboot_rest.dao.entity.Employee;
 import com.turkovaleksey.spring.springboot_rest.service.api.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
+import java.util.Optional;
 
-@org.springframework.stereotype.Service
+@Service
 public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
@@ -26,7 +29,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Employee getByID(Integer id) {
-        return dao.findById(id).get();
+        Optional<Employee> employee = dao.findById(id);
+        return employee.orElse(null);
     }
 
     @Override
@@ -36,8 +40,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     @Transactional
-    public List<String> getAllPhone() {
-        return (List<String>) dao.findAllPhone();
+    public List<String> getAllPhoneBySalary(Integer salary) {
+        return (List<String>) dao.findPhoneWhereSalaryMore(salary);
     }
 
 

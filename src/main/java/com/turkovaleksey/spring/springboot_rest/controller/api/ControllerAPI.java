@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ControllerAPI<T, K> {
     List<T> getAll();
-    T getById(@PathVariable K id);
     T saveOrUpdate(@RequestBody T entity);
-    public  String deleteById(@PathVariable K id);
+    T getById(@PathVariable K id);
+    String deleteById(@PathVariable K id);
 }
