@@ -1,6 +1,5 @@
 package com.turkovaleksey.spring.springboot_rest.dao.entity.account;
 
-import com.turkovaleksey.spring.springboot_rest.dao.entity.Permission;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import java.util.Set;

@@ -1,4 +1,4 @@
-package com.turkovaleksey.spring.springboot_rest.dao.entity;
+package com.turkovaleksey.spring.springboot_rest.dao.entity.account;
 
 public enum Permission {
     DEVELOPERS_READ("developers:read"),
