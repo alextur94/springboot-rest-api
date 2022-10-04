@@ -71,15 +71,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return daoAuthenticationProvider;
     }
 
-//    create table accounts
-//            (
-//                    account_id serial
-//        constraint accounts_pk
-//                primary key,
-//                    login      varchar(255) not null,
-//    password   varchar(255),
-//    role       varchar(20) default USER,
-//    status     varchar(20) default ACTIVE
-//);
+
 
 }
