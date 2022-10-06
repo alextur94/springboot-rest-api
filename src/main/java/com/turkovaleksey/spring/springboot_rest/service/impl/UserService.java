@@ -1,6 +1,6 @@
 package com.turkovaleksey.spring.springboot_rest.service.impl;
 
-import com.turkovaleksey.spring.springboot_rest.repository.UserDao;
+import com.turkovaleksey.spring.springboot_rest.repository.UserReopsitory;
 import com.turkovaleksey.spring.springboot_rest.entity.account.Role;
 import com.turkovaleksey.spring.springboot_rest.entity.account.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +19,10 @@ import java.util.stream.Collectors;
 public class UserService implements UserDetailsService {
 
     @Autowired
-    private UserDao userDao;
+    private UserReopsitory userReopsitory;
 
     public User findByUsername(String username) {
-        return userDao.findByUsername(username);
+        return userReopsitory.findByUsername(username);
     }
 
     @Override

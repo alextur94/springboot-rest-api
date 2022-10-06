@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.Collection;
 
-public interface EmployeeDao extends JpaRepository<Employee, Integer> {
+public interface EmployeeReopsitory extends JpaRepository<Employee, Integer> {
 //    @Query("SELECT phone FROM Employee WHERE salary > ?#{[0]}")
 //    Collection<String> findPhoneWhereSalaryMore(Integer sal);
     @Query("SELECT phone FROM Employee WHERE salary > :#{#sal}")

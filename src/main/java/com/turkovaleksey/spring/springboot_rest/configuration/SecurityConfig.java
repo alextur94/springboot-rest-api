@@ -32,23 +32,25 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .cors()
+                .csrf().disable()//Разобраться!!!
+                .cors()//Разобраться!!!
                 .and()
                 .authorizeRequests()
                 .antMatchers("/user/**").hasRole("USER")
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers(HttpMethod.GET,"/api/**").hasAuthority("READ_EMPLOYEES")
-                .antMatchers(HttpMethod.GET,"/api/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.PUT,"/api/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.DELETE,"/api/**").hasRole("ADMIN")
                 .and()
                 .formLogin()
 //                .loginPage("http://localhost:3000/login")
 //                .defaultSuccessUrl("/auth/")
                 .and()
                 .logout()
-//                .invalidateHttpSession(true)
-//                .clearAuthentication(true)
-//                .deleteCookies("JSESSIONID")
-//                .logoutSuccessUrl("/")
+                .invalidateHttpSession(true)
+                .clearAuthentication(true)
+                .deleteCookies("JSESSIONID")
+                .logoutSuccessUrl("/")
         ;
     }
 

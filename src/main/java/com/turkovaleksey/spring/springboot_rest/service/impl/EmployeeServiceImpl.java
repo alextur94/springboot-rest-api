@@ -1,6 +1,6 @@
 package com.turkovaleksey.spring.springboot_rest.service.impl;
 
-import com.turkovaleksey.spring.springboot_rest.repository.EmployeeDao;
+import com.turkovaleksey.spring.springboot_rest.repository.EmployeeReopsitory;
 import com.turkovaleksey.spring.springboot_rest.entity.Employee;
 import com.turkovaleksey.spring.springboot_rest.service.api.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ import java.util.Optional;
 public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
-    private EmployeeDao dao;
+    private EmployeeReopsitory dao;
 
     @Override
     public List<Employee> getAll() {
