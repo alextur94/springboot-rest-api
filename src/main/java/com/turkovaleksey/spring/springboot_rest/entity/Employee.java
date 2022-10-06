@@ -1,4 +1,4 @@
-package com.turkovaleksey.spring.springboot_rest.dao.entity;
+package com.turkovaleksey.spring.springboot_rest.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,12 +9,12 @@ import javax.persistence.*;
 @Entity
 @Table(name = "employees")
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "employee_id")
     private Integer id;
     @Column(name = "name")
     private String name;

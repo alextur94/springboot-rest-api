@@ -1,12 +1,11 @@
 CREATE TABLE employees (
-  id INT NOT NULL AUTO_INCREMENT,
-  name VARCHAR(45) NOT NULL,
-  surname VARCHAR(45) NOT NULL,
-  phone VARCHAR(45) NULL,
-  email VARCHAR(45) NULL,
-  salary DECIMAL(7,2) NULL,
-  PRIMARY KEY (id)
-)
+    employee_id SERIAL CONSTRAINT employees_pk PRIMARY KEY,
+    name        VARCHAR(100),
+    surname     VARCHAR(100),
+    phone       VARCHAR(25),
+    email       VARCHAR(100),
+    salary      DECIMAL(10,2)
+);
 
 INSERT INTO employees VALUES (1, 'Aleksey', 'Turkov', '+375291234567', 'alextur@cnet.com', 800.00);
 INSERT INTO employees VALUES (2, 'Ivan', 'Usovich', '+375295896587', 'ivanu@cnet.com', 999.00);
