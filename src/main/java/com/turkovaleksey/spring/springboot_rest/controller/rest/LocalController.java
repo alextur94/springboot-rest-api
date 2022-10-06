@@ -11,8 +11,12 @@ import java.security.Principal;
 @RestController
 public class LocalController {
 
-    @Autowired
     private UserService userService;
+
+    @Autowired
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping("/")
     public String getMainPage() {

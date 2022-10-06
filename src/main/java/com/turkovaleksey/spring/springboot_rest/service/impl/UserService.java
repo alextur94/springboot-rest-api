@@ -1,6 +1,6 @@
 package com.turkovaleksey.spring.springboot_rest.service.impl;
 
-import com.turkovaleksey.spring.springboot_rest.repository.UserReopsitory;
+import com.turkovaleksey.spring.springboot_rest.repository.UserRepository;
 import com.turkovaleksey.spring.springboot_rest.entity.account.Role;
 import com.turkovaleksey.spring.springboot_rest.entity.account.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +18,15 @@ import java.util.stream.Collectors;
 @Service
 public class UserService implements UserDetailsService {
 
+    private UserRepository userRepository;
+
     @Autowired
-    private UserReopsitory userReopsitory;
+    public void setUserRepository(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     public User findByUsername(String username) {
-        return userReopsitory.findByUsername(username);
+        return userRepository.findByUsername(username);
     }
 
     @Override

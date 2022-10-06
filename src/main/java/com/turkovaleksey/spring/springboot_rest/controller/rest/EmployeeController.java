@@ -12,8 +12,12 @@ import java.util.List;
 @RequestMapping("/api/employees")
 public class EmployeeController implements ControllerAPI<Employee, Integer> {
 
-    @Autowired
     private EmployeeService service;
+
+    @Autowired
+    public void setService(EmployeeService service) {
+        this.service = service;
+    }
 
     @Override
 //    @PreAuthorize("hasAuthority('developers:read')")
