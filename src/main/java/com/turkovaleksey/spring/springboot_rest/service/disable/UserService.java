@@ -1,4 +1,4 @@
-package com.turkovaleksey.spring.springboot_rest.service.impl;
+package com.turkovaleksey.spring.springboot_rest.service.disable;
 
 import com.turkovaleksey.spring.springboot_rest.repository.UserRepository;
 import com.turkovaleksey.spring.springboot_rest.entity.account.Role;
