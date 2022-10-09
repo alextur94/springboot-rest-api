@@ -1,7 +1,7 @@
 package com.turkovaleksey.spring.springboot_rest.service.impl;
 
-import com.turkovaleksey.spring.springboot_rest.repository.EmployeeRepository;
-import com.turkovaleksey.spring.springboot_rest.entity.Employee;
+import com.turkovaleksey.spring.springboot_rest.repository.api.EmployeeRepository;
+import com.turkovaleksey.spring.springboot_rest.repository.model.employee.Employee;
 import com.turkovaleksey.spring.springboot_rest.service.api.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     private EmployeeRepository employeeRepository;
 
     @Autowired
-    public void setEmployeeReopsitory(EmployeeRepository employeeRepository) {
+    public void setEmployeeRepository(EmployeeRepository employeeRepository) {
         this.employeeRepository = employeeRepository;
     }
 
@@ -42,7 +42,6 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    @Transactional
     public List<String> getAllPhoneBySalary(Integer salary) {
         return (List<String>) employeeRepository.findPhoneWhereSalaryMore(salary);
     }

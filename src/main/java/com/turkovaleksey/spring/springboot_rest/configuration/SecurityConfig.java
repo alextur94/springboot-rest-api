@@ -36,10 +36,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .cors()//Разобраться!!!
                 .and()
                 .authorizeRequests()
-                .antMatchers("/login").permitAll()
-                .antMatchers("/logout").permitAll()
                 .antMatchers("/users/**").permitAll()
-//                .antMatchers("/user/**").hasRole("USER")
+                .antMatchers("/user/**").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers(HttpMethod.GET,"/api/**").permitAll()
 //                .antMatchers(HttpMethod.GET,"/api/**").hasAuthority("READ_EMPLOYEES")
@@ -47,14 +45,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .antMatchers(HttpMethod.DELETE,"/api/**").hasRole("ADMIN")
                 .and()
                 .formLogin()
-                .loginPage("http://localhost:3000/login")
+//                .loginPage("http://localhost:3000/login")
 //                .defaultSuccessUrl("/auth/")
                 .and()
                 .logout()
 //                .invalidateHttpSession(true)
 //                .clearAuthentication(true)
 //                .deleteCookies("JSESSIONID")
-                .logoutSuccessUrl("/")
+                .logoutSuccessUrl("/logout-success")
         ;
     }
 
@@ -118,7 +116,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public UserDetailsService userDetailsService() {
         UserDetails user = User.builder()
                 .username("user")
-                .password("{bcrypt}$2a$12$Nsujpijmr4sVugPbeHpYtOMheJ85LRVvt/0uWns9/0QduBhka6OJ.") //pass : 2
+//                .password("{bcrypt}$2a$12$Nsujpijmr4sVugPbeHpYtOMheJ85LRVvt/0uWns9/0QduBhka6OJ.") //pass : 2
+                .password("{noop}2") //pass : 2
                 .roles("USER")
                 .build();
         UserDetails admin = User.builder()

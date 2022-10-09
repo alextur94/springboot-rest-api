@@ -1,6 +1,6 @@
 package com.turkovaleksey.spring.springboot_rest.service.api;
 
-import com.turkovaleksey.spring.springboot_rest.entity.Employee;
+import com.turkovaleksey.spring.springboot_rest.repository.model.employee.Employee;
 
 import java.util.List;
 

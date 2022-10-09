@@ -35,4 +35,9 @@ public class MainController {
         return "<h1>Admin page</h1>";
     }
 
+    @GetMapping("/logout-success")
+    public String logoutSuccess() {
+        return "Logout success";
+    }
+
 }

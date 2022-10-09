@@ -1,4 +1,4 @@
-package com.turkovaleksey.spring.springboot_rest.entity.account;
+package com.turkovaleksey.spring.springboot_rest.repository.model.account;
 
 import lombok.Data;
 

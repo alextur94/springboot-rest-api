@@ -1,6 +1,6 @@
-package com.turkovaleksey.spring.springboot_rest.repository;
+package com.turkovaleksey.spring.springboot_rest.repository.api;
 
-import com.turkovaleksey.spring.springboot_rest.entity.Employee;
+import com.turkovaleksey.spring.springboot_rest.repository.model.employee.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
