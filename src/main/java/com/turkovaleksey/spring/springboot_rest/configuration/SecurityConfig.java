@@ -11,10 +11,12 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import javax.sql.DataSource;
 import java.util.Arrays;
 
 @EnableWebSecurity
@@ -34,6 +36,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .cors()//Разобраться!!!
                 .and()
                 .authorizeRequests()
+                .antMatchers("/login").permitAll()
+                .antMatchers("/logout").permitAll()
                 .antMatchers("/users/**").permitAll()
 //                .antMatchers("/user/**").hasRole("USER")
                 .antMatchers("/admin/**").hasRole("ADMIN")
@@ -78,7 +82,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //        return new BCryptPasswordEncoder(12);
 //    }
 
-    //Method 3 (jdbcAuth)
+    //Method 3.2 with create Users (jdbcAuth)
 //    @Bean
 //    public JdbcUserDetailsManager user(DataSource dataSource) {
 //        UserDetails user = User.builder()
@@ -103,17 +107,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //        return jdbcUserDetailsManager;
 //    }
 
+    //Method 3.1 (jdbcAuth)
+//    @Bean
+//    public JdbcUserDetailsManager user(DataSource dataSource) {
+//        return new JdbcUserDetailsManager(dataSource);
+//    }
+
     //Method 2 (In memory)
     @Bean
     public UserDetailsService userDetailsService() {
         UserDetails user = User.builder()
                 .username("user")
-                .password("{bcrypt}$2a$12$Nsujpijmr4sVugPbeHpYtOMheJ85LRVvt/0uWns9/0QduBhka6OJ.") // 2
+                .password("{bcrypt}$2a$12$Nsujpijmr4sVugPbeHpYtOMheJ85LRVvt/0uWns9/0QduBhka6OJ.") //pass : 2
                 .roles("USER")
                 .build();
         UserDetails admin = User.builder()
                 .username("admin")
-                .password("{bcrypt}$2a$12$FE7dHFF8vDokcUSfyg52XeNBPbQI09apqSZTXxrkkxE26exoiJiT2") // 1
+                .password("{bcrypt}$2a$12$FE7dHFF8vDokcUSfyg52XeNBPbQI09apqSZTXxrkkxE26exoiJiT2") //pass : 1
                 .roles("ADMIN")
                 .build();
         return new InMemoryUserDetailsManager(user, admin);

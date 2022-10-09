@@ -1,4 +1,4 @@
-package com.turkovaleksey.spring.springboot_rest.controller.rest;
+package com.turkovaleksey.spring.springboot_rest.controller;
 
 import com.turkovaleksey.spring.springboot_rest.controller.api.ControllerAPI;
 import com.turkovaleksey.spring.springboot_rest.entity.Employee;
