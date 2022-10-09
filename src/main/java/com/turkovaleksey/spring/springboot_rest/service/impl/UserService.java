@@ -1,8 +1,8 @@
-package com.turkovaleksey.spring.springboot_rest.service.disable;
+package com.turkovaleksey.spring.springboot_rest.service.impl;
 
-import com.turkovaleksey.spring.springboot_rest.repository.UserRepository;
-import com.turkovaleksey.spring.springboot_rest.entity.account.Role;
-import com.turkovaleksey.spring.springboot_rest.entity.account.User;
+import com.turkovaleksey.spring.springboot_rest.repository.api.UserRepository;
+import com.turkovaleksey.spring.springboot_rest.repository.model.account.Role;
+import com.turkovaleksey.spring.springboot_rest.repository.model.account.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

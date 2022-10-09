@@ -1,6 +1,6 @@
 package com.turkovaleksey.spring.springboot_rest.configuration;
 
-//import com.turkovaleksey.spring.springboot_rest.service.disable.UserService;
+//import com.turkovaleksey.spring.springboot_rest.service.impl.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;

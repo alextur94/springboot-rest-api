@@ -1,6 +1,6 @@
 package com.turkovaleksey.spring.springboot_rest.controller;
 
-//import com.turkovaleksey.spring.springboot_rest.service.disable.UserService;
+//import com.turkovaleksey.spring.springboot_rest.service.impl.UserService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
