@@ -50,7 +50,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .antMatchers(HttpMethod.DELETE,"/api/**").hasRole("ADMIN")
                 .and()
                 .formLogin()
-//                .loginPage("http://localhost:3000/login")
+                .loginPage("http://localhost:3000/login")
 //                .defaultSuccessUrl("/")
                 .and()
                 .logout()
