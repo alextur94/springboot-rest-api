@@ -6,9 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class MyController {
+
     @GetMapping("/admin")
     public String getAdminPage() {
-        return "redirect:/localhost:3000/admin";
+        return "forward:/localhost:3000/admin";
     }
 
 }
