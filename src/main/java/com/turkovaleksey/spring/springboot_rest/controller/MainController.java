@@ -39,7 +39,7 @@ public class MainController {
 
     @GetMapping("/admin")
     public String getAdminPage(Principal principal) {
-        return "You're username : " + principal.getName();
+        return "redirect:/localhost:3000/admin";
     }
 
     @GetMapping("/logout-success")
