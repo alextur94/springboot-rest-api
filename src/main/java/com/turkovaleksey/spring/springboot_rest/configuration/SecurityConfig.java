@@ -46,7 +46,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
 //                .loginPage("http://localhost:3000/login")
-//                .defaultSuccessUrl("/auth/")
+//                .defaultSuccessUrl("/")
                 .and()
                 .logout()
 //                .invalidateHttpSession(true)
