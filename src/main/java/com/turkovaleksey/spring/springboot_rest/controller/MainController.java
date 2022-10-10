@@ -1,6 +1,8 @@
 package com.turkovaleksey.spring.springboot_rest.controller;
 
-//import com.turkovaleksey.spring.springboot_rest.service.impl.UserService;
+import com.turkovaleksey.spring.springboot_rest.repository.model.account.User;
+import com.turkovaleksey.spring.springboot_rest.service.impl.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,12 +11,12 @@ import java.security.Principal;
 @RestController
 public class MainController {
 
-//    private UserService userService;
-//
-//    @Autowired
-//    public void setUserService(UserService userService) {
-//        this.userService = userService;
-//    }
+    private UserService userService;
+
+    @Autowired
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping("/")
     public String getMainPage() {
@@ -30,9 +32,8 @@ public class MainController {
 
     @GetMapping("/admin")
     public String getAdminPage(Principal principal) {
-//        User user = userService.findByUsername(principal.getName());
+        User user = userService.findByUsername(principal.getName());
 //        return "<h3> ADMIN PAGE. username : " + principal.getName() + ", email : " + user.getEmail() + "</h3>";
-//        return "<h1>Admin page</h1>";
         return "admin";
     }
 
