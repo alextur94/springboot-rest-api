@@ -28,12 +28,13 @@ public class MainController {
         return "<h1>User page</h1>";
     }
 
-//    @GetMapping("/admin")
-//    public String getAdminPage(Principal principal) {
-////        User user = userService.findByUsername(principal.getName());
-////        return "<h3> ADMIN PAGE. username : " + principal.getName() + ", email : " + user.getEmail() + "</h3>";
+    @GetMapping("/admin")
+    public String getAdminPage(Principal principal) {
+//        User user = userService.findByUsername(principal.getName());
+//        return "<h3> ADMIN PAGE. username : " + principal.getName() + ", email : " + user.getEmail() + "</h3>";
 //        return "<h1>Admin page</h1>";
-//    }
+        return "admin";
+    }
 
     @GetMapping("/logout-success")
     public String logoutSuccess() {
