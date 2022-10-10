@@ -4,6 +4,8 @@ import com.turkovaleksey.spring.springboot_rest.controller.api.ControllerAPI;
 import com.turkovaleksey.spring.springboot_rest.repository.model.product.Product;
 import com.turkovaleksey.spring.springboot_rest.service.api.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -45,4 +47,5 @@ public class ProductController implements ControllerAPI<Product, Integer> {
         productService.deleteById(id);
         return "Employee with ID = " + id + " was deleted";
     }
+
 }
