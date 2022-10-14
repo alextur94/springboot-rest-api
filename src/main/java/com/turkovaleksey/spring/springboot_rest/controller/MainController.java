@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.security.Principal;
 
 @RestController
@@ -21,8 +23,13 @@ public class MainController {
     }
 
     @GetMapping("/")
-    public String getMainPage() {
-        return "<h1>Main page</h1>";
+    public String getMainPage(HttpServletResponse response) {
+        try {
+            response.sendRedirect("http://localhost:3000/");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
     }
 
     @GetMapping("/users")
@@ -32,19 +39,8 @@ public class MainController {
 
     @GetMapping("/user")
     public String getUserPage(Principal principal) {
-//        User user = userService.findByUsername(principal.getName());
-//        return "<h3> USER PAGE. username : " + principal.getName() + ", email : " + user.getEmail() + "</h3>";
-        return "<h1>User page</h1>";
-    }
-
-//    @GetMapping("/admin")
-//    public String getAdminPage(Principal principal) {
-//        return "redirect:/localhost:3000/admin";
-//    }
-
-    @GetMapping("/logout-success")
-    public String logoutSuccess() {
-        return "Logout success";
+        User user = userService.findByUsername(principal.getName());
+        return "<h3> USER PAGE. username : " + principal.getName() + ", email : " + user.getEmail() + "</h3>";
     }
 
 }
