@@ -3,12 +3,10 @@ package com.turkovaleksey.spring.springboot_rest.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-
 
 @Controller
 public class MyController {
@@ -21,7 +19,9 @@ public class MyController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        return null;
+//        HttpSession session = request.getSession(true);
+//        session.setAttribute("mySessionAttribute", "someValue");
+        return "test";
     }
 
 }
