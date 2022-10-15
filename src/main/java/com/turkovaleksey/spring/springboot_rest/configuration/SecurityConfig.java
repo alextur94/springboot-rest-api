@@ -49,8 +49,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.DELETE,"/api/**").hasRole("ADMIN")
                 .and()
                 .formLogin()
-                .loginPage("http://localhost:3000/login")
-//                .loginPage("/login-form") //это моя кастомная форма html
+//                .loginPage("http://localhost:3000/login")
+                .loginPage("/login-form") //это моя кастомная форма html
                 .loginProcessingUrl("/perform_login") //по этому action я отправляю форму
                 .defaultSuccessUrl("http://localhost:3000/") //после успешного входа отправляю на эту страницу
                 .and()
