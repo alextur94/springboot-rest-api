@@ -24,7 +24,7 @@ public class MyController {
         return null;
     }
 
-    @GetMapping("/login")
+    @GetMapping("/login-form")
     public String getLoginPage() {
         return "test";
     }
