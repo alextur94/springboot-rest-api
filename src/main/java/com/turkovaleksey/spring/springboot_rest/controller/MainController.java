@@ -25,7 +25,6 @@ public class MainController {
     @GetMapping("/")
     public String getMainPage(HttpServletResponse response) {
         try {
-            response.addHeader("redirect-from","server");
             response.sendRedirect("http://localhost:3000/");
         } catch (IOException e) {
             throw new RuntimeException(e);
