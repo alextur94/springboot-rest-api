@@ -1,8 +1,9 @@
-package com.turkovaleksey.spring.springboot_rest.controller;
+package com.turkovaleksey.spring.springboot_rest.controller.entity;
 
 import com.turkovaleksey.spring.springboot_rest.controller.api.ControllerAPI;
-import com.turkovaleksey.spring.springboot_rest.repository.model.product.Product;
 import com.turkovaleksey.spring.springboot_rest.service.api.ProductService;
+import com.turkovaleksey.spring.springboot_rest.service.converter.ProductConverter;
+import com.turkovaleksey.spring.springboot_rest.service.dto.ProductDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,34 +11,36 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/products")
-public class ProductController implements ControllerAPI<Product, Integer> {
+public class ProductController implements ControllerAPI<ProductDto, Integer> {
 
     private ProductService productService;
+    private ProductConverter productConverter;
 
     @Autowired
-    public void setProductService(ProductService productService) {
+    public void setProductService(ProductService productService, ProductConverter productConverter) {
         this.productService = productService;
+        this.productConverter = productConverter;
     }
 
     @Override
     @GetMapping("/")
-    public List<Product> getAll() {
-        List<Product> productList = productService.getAll();
+    public List<ProductDto> getAll() {
+        List<ProductDto> productList = productService.getAll();
         return productList;
     }
 
     @Override
     @PutMapping("/")
-    public Product saveOrUpdate(@RequestBody Product entity) {
+    public ProductDto saveOrUpdate(@RequestBody ProductDto entity) {
         productService.saveOrUpdate(entity);
         return entity;
     }
 
     @Override
     @GetMapping("/{id}")
-    public Product getById(@PathVariable Integer id) {
-        Product product = productService.getByID(id);
-        return product;
+    public ProductDto getById(@PathVariable Integer id) {
+        ProductDto productDto = productService.getByID(id);
+        return productDto;
     }
 
     @Override

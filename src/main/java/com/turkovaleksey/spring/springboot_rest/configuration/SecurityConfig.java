@@ -40,25 +40,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .cors()
                 .and()
                 .authorizeRequests()
-                .antMatchers("/users/**").permitAll()
+                .antMatchers("/login").permitAll()
                 .antMatchers("/user/**").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/admin/**").hasRole("ADMIN")
+                .antMatchers("/users/**").permitAll()
                 .antMatchers(HttpMethod.GET,"/api/**").hasRole("ADMIN")
-//                .antMatchers(HttpMethod.GET,"/api/**").hasAuthority("READ_EMPLOYEES")
                 .antMatchers(HttpMethod.PUT,"/api/**").hasRole("ADMIN")
                 .antMatchers(HttpMethod.DELETE,"/api/**").hasRole("ADMIN")
+//                .antMatchers(HttpMethod.GET,"/api/**").hasAuthority("READ_EMPLOYEES")
                 .and()
                 .formLogin()
-                .loginPage("http://localhost:3000/login")
-//                .loginPage("/login-form") //это моя кастомная форма html
-                .loginProcessingUrl("/perform_login") //по этому action я отправляю форму
-                .defaultSuccessUrl("http://localhost:3000/") //после успешного входа отправляю на эту страницу
+//                .loginPage("http://localhost:3000/login")
+//                .defaultSuccessUrl("http://localhost:3000/")
+                .defaultSuccessUrl("/")
                 .and()
                 .logout()
                 .invalidateHttpSession(true)
 //                .clearAuthentication(true)
 //                .deleteCookies("JSESSIONID")
-                .logoutSuccessUrl("http://localhost:3000/")
+//                .logoutSuccessUrl("http://localhost:3000/")
+                .logoutSuccessUrl("/")
         ;
     }
 

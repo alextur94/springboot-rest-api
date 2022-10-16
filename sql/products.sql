@@ -1,9 +1,10 @@
-create table products
+create table smartphones
 (
     product_id  serial
         constraint products_pk
             primary key,
-    title       VARCHAR(255) not null,
+    brand       VARCHAR(255) not null,
+    model       VARCHAR(255) not null,
     description TEXT,
     price       DECIMAL(10, 2) default 0.00,
     photo       VARCHAR(255),
@@ -11,8 +12,21 @@ create table products
     category_id int
 );
 
-INSERT INTO products VALUES (1, 'iPhone 13', 'description 123', 800.00, 'url photo', 1, 2);
-INSERT INTO products VALUES (2, 'iPhone 11', 'description 234', 700.00, 'url photo', 1, 2);
-INSERT INTO products VALUES (3, 'iPhone 12', 'description 345', 600.00, 'url photo', 1, 2);
-INSERT INTO products VALUES (4, 'iPhone 14', 'description 456', 500.00, 'url photo', 1, 2);
-INSERT INTO products VALUES (5, 'Samsung', 'description 789', 400.00, 'url photo', 1, 2);
+create table categories
+(
+    category_id  serial
+        constraint categories_pk
+            primary key,
+    category       VARCHAR(255) not null,
+);
+
+INSERT INTO smartphones VALUES (1, 'iPhone', '14', 'description 123', 800.00, 'url photo', 1, 2);
+INSERT INTO smartphones VALUES (2, 'iPhone', '13', 'description 234', 700.00, 'url photo', 1, 2);
+INSERT INTO smartphones VALUES (3, 'iPhone', '13', 'description 345', 600.00, 'url photo', 1, 2);
+INSERT INTO smartphones VALUES (4, 'iPhone', '11', 'description 456', 500.00, 'url photo', 1, 2);
+INSERT INTO smartphones VALUES (5, 'Samsung', 'A20', 'description 789', 400.00, 'url photo', 1, 2);
+
+INSERT INTO categories VALUES (1, 'Smartphones');
+INSERT INTO categories VALUES (2, 'Notebooks');
+
+
