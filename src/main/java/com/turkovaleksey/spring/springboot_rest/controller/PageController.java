@@ -25,6 +25,7 @@ public class PageController {
     @GetMapping("/")
     public String getMainPage(HttpServletResponse response) {
         try {
+            response.addHeader("asd","asd");
             response.sendRedirect("http://localhost:3000/");
         } catch (IOException e) {
             throw new RuntimeException(e);
