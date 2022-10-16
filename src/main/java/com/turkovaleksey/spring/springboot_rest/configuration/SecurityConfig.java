@@ -50,16 +50,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .antMatchers(HttpMethod.GET,"/api/**").hasAuthority("READ_EMPLOYEES")
                 .and()
                 .formLogin()
-//                .loginPage("http://localhost:3000/login")
-//                .defaultSuccessUrl("http://localhost:3000/")
-                .defaultSuccessUrl("/")
+                .loginPage("http://localhost:3000/login")
+                .defaultSuccessUrl("http://localhost:3000/")
                 .and()
                 .logout()
                 .invalidateHttpSession(true)
-//                .clearAuthentication(true)
-//                .deleteCookies("JSESSIONID")
-//                .logoutSuccessUrl("http://localhost:3000/")
-                .logoutSuccessUrl("/")
+                .clearAuthentication(true)
+                .deleteCookies("JSESSIONID")
+                .logoutSuccessUrl("http://localhost:3000/")
         ;
     }
 

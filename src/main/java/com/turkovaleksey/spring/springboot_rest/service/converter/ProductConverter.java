@@ -8,16 +8,7 @@ import org.springframework.stereotype.Component;
 public class ProductConverter implements Converter<Smartphones, ProductDto> {
     @Override
     public Smartphones convertDao(ProductDto entity) {
-        return new Smartphones(
-                entity.getId(),
-                entity.getBrand(),
-                entity.getModel(),
-                entity.getDescription(),
-                entity.getPhoto(),
-                entity.getPrice(),
-                1,
-                1
-        );
+        return null;
     }
 
     @Override

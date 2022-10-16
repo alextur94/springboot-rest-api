@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.security.Principal;
 
 @Controller
@@ -34,15 +35,17 @@ public class PageController {
 
     @GetMapping("/admin")
     public String getAdminPage(HttpServletRequest request, HttpServletResponse response, Principal principal) {
-//        try {
-        String username = principal.getName();
-        HttpSession session = request.getSession();
-        session.setAttribute("name", username);
-//            response.sendRedirect("http://localhost:3000/admin");
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-        return "admin";
+        try {
+            String username = principal.getName();
+//            HttpSession session = request.getSession();
+//            session.setAttribute("name", username);
+            request.setAttribute("name", username);
+            response.sendRedirect("http://localhost:3000/admin");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+//        return "admin";
     }
 
     @GetMapping("/user")

@@ -28,9 +28,9 @@ public class ProductServiceImpl implements ProductService {
     public List<ProductDto> getAll() {
         List<Smartphones> smartphones = productRepository.findAll();
         List<ProductDto> productDtos = new ArrayList<>();
-        for (Smartphones smartphones : smartphones) {
-            productDtos.add(productConverter.convertDto(smartphones));
-        }
+//        for (Smartphones smartphones : smartphones) {
+//            productDtos.add(productConverter.convertDto(smartphones));
+//        }
         return productDtos;
     }
 
