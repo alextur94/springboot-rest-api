@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.security.Principal;
 
 @Controller
-public class PageController {
+public class MainController {
 
     private UserService userService;
 
@@ -25,13 +25,11 @@ public class PageController {
     @GetMapping("/")
     public String getMainPage(HttpServletResponse response) {
         try {
-            response.addHeader("asd","asd");
             response.sendRedirect("http://localhost:3000/");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         return null;
-//        return "main";
     }
 
     @GetMapping("/admin")
@@ -46,7 +44,6 @@ public class PageController {
             throw new RuntimeException(e);
         }
         return null;
-//        return "admin";
     }
 
     @GetMapping("/user")
@@ -57,11 +54,6 @@ public class PageController {
         session.setAttribute("name", username);
         session.setAttribute("email", user.getEmail());
         return "user";
-    }
-
-    @GetMapping("/users")
-    public String getUsersPage() {
-        return "users";
     }
 
 }

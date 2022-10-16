@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/smartphones")
-public class SmartphoneDefaultController implements DefaultController<Smartphone, Integer> {
+public class SmartphoneController implements DefaultController<Smartphone, Integer> {
 
     private SmartphoneService smartphoneService;
 
