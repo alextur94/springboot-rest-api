@@ -5,13 +5,15 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class ProductDto {
+public class SamrtphoneDto {
     private Integer id;
+    private String title;
+    private String description;
+    private String photo;
+    private Double price;
     private String brand;
     private String model;
-    private String description;
-    private Double price;
-    private String photo;
-    private String category;
-    private String shop;
+    private Integer memory;
+    private Integer categoryId;
+    private Integer shopId;
 }

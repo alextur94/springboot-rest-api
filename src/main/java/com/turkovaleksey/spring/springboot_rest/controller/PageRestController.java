@@ -9,7 +9,7 @@ import java.security.Principal;
 @RestController
 @RequestMapping("/info")
 public class PageRestController {
-    @GetMapping("/actual_username")
+    @GetMapping("/username")
     public String getActualUser(Principal principal) {
         return principal.getName();
     }
