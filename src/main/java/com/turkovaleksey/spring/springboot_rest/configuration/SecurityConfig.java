@@ -50,7 +50,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .antMatchers(HttpMethod.GET,"/api/**").hasAuthority("READ_EMPLOYEES")
                 .and()
                 .formLogin()
-                .loginPage("http://localhost:3000/login")
+//                .loginPage("http://localhost:3000/login")
                 .defaultSuccessUrl("http://localhost:3000/")
                 .and()
                 .logout()
