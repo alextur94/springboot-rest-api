@@ -1,6 +1,6 @@
 package com.turkovaleksey.spring.springboot_rest.controller.entity;
 
-import com.turkovaleksey.spring.springboot_rest.controller.api.ControllerAPI;
+import com.turkovaleksey.spring.springboot_rest.controller.api.DefaultController;
 import com.turkovaleksey.spring.springboot_rest.repository.model.employee.Employee;
 import com.turkovaleksey.spring.springboot_rest.service.api.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/employees")
-public class EmployeeController implements ControllerAPI<Employee, Integer> {
+public class EmployeeDefaultController implements DefaultController<Employee, Integer> {
 
     private EmployeeService employeeService;
 
@@ -20,7 +20,6 @@ public class EmployeeController implements ControllerAPI<Employee, Integer> {
     }
 
     @Override
-//    @PreAuthorize("hasAuthority('developers:read')")
     @GetMapping("/")
     public List<Employee> getAll() {
         List<Employee> list = employeeService.getAll();
@@ -28,7 +27,6 @@ public class EmployeeController implements ControllerAPI<Employee, Integer> {
     }
 
     @Override
-//    @PreAuthorize("hasAuthority('developers:write')")
     @PutMapping("/")
     public Employee saveOrUpdate(@RequestBody Employee employee) {
         employeeService.saveOrUpdate(employee);
@@ -36,7 +34,6 @@ public class EmployeeController implements ControllerAPI<Employee, Integer> {
     }
 
     @Override
-//    @PreAuthorize("hasAuthority('developers:read')")
     @GetMapping("/{id}")
     public Employee getById(@PathVariable Integer id) {
         Employee employee = employeeService.getByID(id);

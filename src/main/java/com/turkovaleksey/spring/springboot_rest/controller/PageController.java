@@ -24,13 +24,13 @@ public class PageController {
 
     @GetMapping("/")
     public String getMainPage(HttpServletResponse response) {
-//        try {
-//            response.sendRedirect("http://localhost:3000/");
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//        return null;
-        return "main";
+        try {
+            response.sendRedirect("http://localhost:3000/");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+//        return "main";
     }
 
     @GetMapping("/admin")

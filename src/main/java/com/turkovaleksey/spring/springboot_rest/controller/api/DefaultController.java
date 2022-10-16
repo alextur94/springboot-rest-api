@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
-public interface ControllerAPI<T, K> {
+public interface DefaultController<T, K> {
     List<T> getAll();
     T saveOrUpdate(@RequestBody T entity);
     T getById(@PathVariable K id);

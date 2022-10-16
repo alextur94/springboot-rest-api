@@ -1,6 +1,6 @@
 package com.turkovaleksey.spring.springboot_rest.controller.entity;
 
-import com.turkovaleksey.spring.springboot_rest.controller.api.ControllerAPI;
+import com.turkovaleksey.spring.springboot_rest.controller.api.DefaultController;
 import com.turkovaleksey.spring.springboot_rest.repository.model.product.Smartphone;
 import com.turkovaleksey.spring.springboot_rest.service.api.SmartphoneService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/smartphones")
-public class SmartphoneController implements ControllerAPI<Smartphone, Integer> {
+public class SmartphoneDefaultController implements DefaultController<Smartphone, Integer> {
 
     private SmartphoneService smartphoneService;
 
