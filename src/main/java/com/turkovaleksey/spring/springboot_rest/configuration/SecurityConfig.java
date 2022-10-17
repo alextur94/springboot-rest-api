@@ -16,10 +16,13 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Properties;
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    @Autowired
+    private Properties property;
     private UserService userService;
 
     @Autowired
@@ -34,21 +37,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .cors()
                 .and()
                 .authorizeRequests()
-//                .antMatchers(HttpMethod.GET, "/api/**").hasRole("ADMIN")
-//                .antMatchers(HttpMethod.PUT, "/api/**").hasRole("ADMIN")
-//                .antMatchers(HttpMethod.DELETE, "/api/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET, "/api/**").hasAnyRole("USER" ,"ADMIN")
+                .antMatchers(HttpMethod.PUT, "/api/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.DELETE, "/api/**").hasRole("ADMIN")
 //                .antMatchers(HttpMethod.GET,"/api/**").hasAuthority("READ_EMPLOYEES")
                 .and()
                 .formLogin()
-                .loginPage("http://localhost:3000/login")
-                .loginProcessingUrl("/perform_login")
-                .defaultSuccessUrl("http://localhost:3000/")
+                .loginPage(property.getProperty("loginFormPage"))
+                .loginProcessingUrl(property.getProperty("loginFormUrl"))
+                .defaultSuccessUrl(property.getProperty("loginSuccessUrl"))
                 .and()
                 .logout()
                 .invalidateHttpSession(true)
                 .clearAuthentication(true)
                 .deleteCookies("JSESSIONID")
-                .logoutSuccessUrl("http://localhost:3000/")
+                .logoutSuccessUrl(property.getProperty("logoutSuccessUrl"))
         ;
     }
 
