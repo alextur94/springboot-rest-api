@@ -25,27 +25,24 @@ public class MainController {
     @GetMapping("/")
     public String getMainPage(HttpServletResponse response) {
         try {
-            response.addHeader("val12", "8080");
+            response.setHeader("Server", "8080");
             response.sendRedirect("http://localhost:3000/");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         return null;
+//        return "main";
     }
 
     @GetMapping("/admin")
     public String getAdminPage(HttpServletRequest request, HttpServletResponse response, Principal principal) {
         try {
-            String username = principal.getName();
-//            HttpSession session = request.getSession();
-//            session.setAttribute("name", username);
-            response.addHeader("val12", "8080");
-            request.setAttribute("name", username);
             response.sendRedirect("http://localhost:3000/admin");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         return null;
+//        return "admin";
     }
 
     @GetMapping("/user")
