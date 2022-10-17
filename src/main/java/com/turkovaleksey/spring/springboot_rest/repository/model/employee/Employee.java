@@ -9,8 +9,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "employees")
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class Employee {
 
     @Id
@@ -33,4 +31,15 @@ public class Employee {
     @Column(name = "salary")
     private Integer salary;
 
+    public Employee() {
+    }
+
+    public Employee(Integer id, String name, String surname, String phone, String email, Integer salary) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.phone = phone;
+        this.email = email;
+        this.salary = salary;
+    }
 }

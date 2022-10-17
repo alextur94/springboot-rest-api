@@ -3,6 +3,9 @@ package com.turkovaleksey.spring.springboot_rest.service.impl;
 import com.turkovaleksey.spring.springboot_rest.repository.api.UserRepository;
 import com.turkovaleksey.spring.springboot_rest.repository.model.account.Role;
 import com.turkovaleksey.spring.springboot_rest.repository.model.account.User;
+import com.turkovaleksey.spring.springboot_rest.service.api.UserService;
+import com.turkovaleksey.spring.springboot_rest.service.converter.UserConverter;
+import com.turkovaleksey.spring.springboot_rest.service.dto.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -12,17 +15,44 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class UserService implements UserDetailsService {
+public class UserServiceImpl implements UserDetailsService, UserService {
 
     private UserRepository userRepository;
+    private UserConverter userConverter;
 
     @Autowired
-    public void setUserRepository(UserRepository userRepository) {
+    public void setRepository(UserRepository userRepository, UserConverter userConverter) {
         this.userRepository = userRepository;
+        this.userConverter = userConverter;
+    }
+
+    @Override
+    public List<UserDto> getAll() {
+        List<UserDto> usersDto = new ArrayList<>();
+        for (User user : userRepository.findAll()) {
+            usersDto.add(userConverter.convert(user));
+        }
+        return usersDto;
+    }
+
+    @Override
+    public void saveOrUpdate(UserDto entity) {
+    }
+
+    @Override
+    public UserDto getByID(Integer id) {
+        return null;
+    }
+
+    @Override
+    public void deleteById(Integer id) {
+
     }
 
     public User findByUsername(String username) {

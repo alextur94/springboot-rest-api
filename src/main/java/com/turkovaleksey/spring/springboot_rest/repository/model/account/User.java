@@ -1,6 +1,8 @@
 package com.turkovaleksey.spring.springboot_rest.repository.model.account;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -30,4 +32,13 @@ public class User {
     inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Collection<Role> roles;
 
+    public User() {
+    }
+
+    public User(Integer id, String username, String email, Collection<Role> roles) {
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.roles = roles;
+    }
 }

@@ -13,12 +13,10 @@ import java.util.Optional;
 public class SmartphoneServiceImpl implements SmartphoneService {
 
     private SmartphoneRepository smartphoneRepository;
-//    private SmartphoneConverter smartphoneConverter;
 
     @Autowired
     public void setEntity (SmartphoneRepository smartphoneRepository) {
         this.smartphoneRepository = smartphoneRepository;
-//        this.smartphoneConverter = smartphoneConverter;
     }
 
     @Override
