@@ -15,12 +15,10 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.Arrays;
-import java.util.Properties;
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    final Properties property = new Properties();
     private UserService userService;
 
     @Autowired
@@ -41,15 +39,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .antMatchers(HttpMethod.GET,"/api/**").hasAuthority("READ_EMPLOYEES")
                 .and()
                 .formLogin()
-                .loginPage(property.getProperty("loginFormPage"))
-                .loginProcessingUrl(property.getProperty("loginFormUrl"))
-                .defaultSuccessUrl(property.getProperty("loginSuccessUrl"))
+                .loginPage("http://localhost:3000/login")
+                .loginProcessingUrl("/perform_login")
+                .defaultSuccessUrl("http://localhost:3000/")
                 .and()
                 .logout()
                 .invalidateHttpSession(true)
                 .clearAuthentication(true)
                 .deleteCookies("JSESSIONID")
-                .logoutSuccessUrl(property.getProperty("logoutSuccessUrl"))
+                .logoutSuccessUrl("http://localhost:3000/")
         ;
     }
 
