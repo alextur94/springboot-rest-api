@@ -4,6 +4,7 @@ import com.turkovaleksey.spring.springboot_rest.repository.model.account.Role;
 import com.turkovaleksey.spring.springboot_rest.repository.model.account.User;
 import com.turkovaleksey.spring.springboot_rest.service.converter.api.Converter;
 import com.turkovaleksey.spring.springboot_rest.service.dto.UserDto;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -13,17 +14,22 @@ import java.util.List;
 @Component
 public class UserConverter implements Converter<User, UserDto> {
     @Override
-    public User convert(UserDto entity) {
-        return null;
+    public User convert(UserDto userDto) {
+        return new User(
+                userDto.getId(),
+                userDto.getUsername(),
+                passwordEncoder(userDto.getPassword()),
+                userDto.getEmail()
+        );
     }
 
     @Override
-    public UserDto convert(User entity) {
+    public UserDto convert(User user) {
         return new UserDto(
-                entity.getId(),
-                entity.getUsername(),
-                entity.getEmail(),
-                convertRoleToList(entity.getRoles())
+                user.getId(),
+                user.getUsername(),
+                user.getEmail(),
+                convertRoleToList(user.getRoles())
         );
     }
     
@@ -33,6 +39,10 @@ public class UserConverter implements Converter<User, UserDto> {
             listRoles.add(role.getName());
         }
         return listRoles;
+    }
+
+    private String passwordEncoder(String password) {
+        return new BCryptPasswordEncoder(12).encode(password);
     }
 
 }

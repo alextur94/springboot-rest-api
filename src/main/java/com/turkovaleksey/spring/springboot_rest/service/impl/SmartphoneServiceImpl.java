@@ -32,8 +32,7 @@ public class SmartphoneServiceImpl implements SmartphoneService {
     @Override
     public Smartphone getByID(Integer id) {
         Optional<Smartphone> product = smartphoneRepository.findById(id);
-        Smartphone p = product.orElse(null);
-        return p;
+        return product.orElse(null);
     }
 
     @Override

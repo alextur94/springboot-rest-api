@@ -36,7 +36,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/api/**").permitAll()
                 .antMatchers(HttpMethod.PUT, "/api/**").hasRole("ADMIN")
                 .antMatchers(HttpMethod.DELETE, "/api/**").hasRole("ADMIN")
-                .antMatchers(HttpMethod.GET, "/data/**").hasAuthority("READ_USERS")
+//                .antMatchers(HttpMethod.GET, "/data/**").hasAuthority("READ_USERS")
                 .and()
                 .formLogin()
 //                .loginPage("http://localhost:3000/login")

@@ -1,8 +1,8 @@
 create table users (
     user_id bigserial,
     username varchar(30) not null,
-    password varchar(80),
-    email varchar(50) UNIQUE,
+    password varchar(80) not null,
+    email varchar(50) not null UNIQUE,
     primary key (user_id)
 );
 

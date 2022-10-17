@@ -18,6 +18,7 @@ import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -43,16 +44,24 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 
     @Override
     public void saveOrUpdate(UserDto entity) {
+        User user = userConverter.convert(entity);
+        userRepository.save(user);
     }
 
     @Override
     public UserDto getByID(Integer id) {
-        return null;
+        Optional<User> user = userRepository.findById(id);
+        User actualUser = user.orElse(null);
+        UserDto userDto = null;
+        if (actualUser != null) {
+            userDto = userConverter.convert(actualUser);
+        }
+        return userDto;
     }
 
     @Override
     public void deleteById(Integer id) {
-
+        userRepository.deleteById(id);
     }
 
     public User findByUsername(String username) {

@@ -31,9 +31,9 @@ public class UserController implements DefaultController<UserDto, Integer> {
 
     @Override
     @PutMapping("/")
-    public UserDto saveOrUpdate(@RequestBody UserDto user) {
-        userService.saveOrUpdate(user);
-        return user;
+    public UserDto saveOrUpdate(@RequestBody UserDto userDto) {
+        userService.saveOrUpdate(userDto);
+        return userDto;
     }
 
     @Override
