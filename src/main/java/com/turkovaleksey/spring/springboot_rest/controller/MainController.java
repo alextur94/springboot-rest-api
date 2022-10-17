@@ -45,14 +45,4 @@ public class MainController {
 //        return "admin";
     }
 
-    @GetMapping("/user")
-    public String getUserPage(HttpServletRequest request, Principal principal) {
-        User user = userService.findByUsername(principal.getName());
-        String username = principal.getName();
-        HttpSession session = request.getSession();
-        session.setAttribute("name", username);
-        session.setAttribute("email", user.getEmail());
-        return "user";
-    }
-
 }
