@@ -39,15 +39,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/data/**").hasAuthority("READ_USERS")
                 .and()
                 .formLogin()
-                .loginPage("http://localhost:3000/login")
-                .loginProcessingUrl("/perform_login")
-                .defaultSuccessUrl("http://localhost:3000/")
+//                .loginPage("http://localhost:3000/login")
+//                .loginProcessingUrl("/perform_login")
+//                .defaultSuccessUrl("http://localhost:3000/")
                 .and()
                 .logout()
                 .invalidateHttpSession(true)
                 .clearAuthentication(true)
                 .deleteCookies("JSESSIONID")
-                .logoutSuccessUrl("http://localhost:3000/")
+//                .logoutSuccessUrl("http://localhost:3000/")
         ;
     }
 
