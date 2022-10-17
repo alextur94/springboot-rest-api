@@ -25,6 +25,7 @@ public class MainController {
     @GetMapping("/")
     public String getMainPage(HttpServletResponse response) {
         try {
+            response.addHeader("val12", "8080");
             response.sendRedirect("http://localhost:3000/");
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -38,6 +39,7 @@ public class MainController {
             String username = principal.getName();
 //            HttpSession session = request.getSession();
 //            session.setAttribute("name", username);
+            response.addHeader("val12", "8080");
             request.setAttribute("name", username);
             response.sendRedirect("http://localhost:3000/admin");
         } catch (IOException e) {
